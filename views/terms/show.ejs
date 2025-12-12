@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+       <%- include('../partials/_navbar.ejs') %>
+    <h1> <%= terms.name %></h1>
+
+    <p>Definition: <%= terms.definition %> sq ft</p>
+    <p>Example: <%= terms.example %></p>
+    <p>category: <%= terms.category %></p>
+    <h2>Owner</h2>
+  <% if (terms.userId._id.equals(user._id)) { %>
+    
+    <form action="/terms/<%= terms._id %>?_method=DELETE" method="POST">
+  <button type="submit">Delete this terms</button>
+</form>
+
+<a href="/terms/<%= terms._id %>/edit">Edit this terms</a>
+  <% } else { %>
+    <p><%= terms.userId.username %> </p>
+  <% } %>
+
+  
+
+    
+</body>
+</html>

@@ -6,11 +6,16 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-
+  email:{
+    type: String,
+    required: true,
+  },
+  
   password: {
     type: String,
     required: true,
   },
+
 });
 // then we register the model with mongoose
 const User = mongoose.model('User', userSchema);
