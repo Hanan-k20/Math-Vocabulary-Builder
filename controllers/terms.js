@@ -80,16 +80,16 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.delete('/:termsId', async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
-    const terms = await Terms.findById(req.params.termsId);
+    const terms = await Terms.findById(req.params.id);
     const isOwner=terms.userId.equals(req.session.user._id)
     if (isOwner) {
      await terms.deleteOne()
-      res.redirect("/terms/index.ejs")
+      res.redirect("/terms")
 
     } else {
-        throw new Error (`permission denied to ${req.params.termsId}`);
+        throw new Error (`permission denied to ${req.params.id}`);
     
     }
   } catch (error) {

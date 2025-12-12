@@ -8,7 +8,7 @@
 <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1>Edit Math Term </h1>
-    <form action="/terms" method="POST">
+    <form action="/terms/<%= terms._id %>?_method=PUT" method="POST">
 
   <label for="name">Name: </label>
   <input type="text" name="name" id="name"  value ="<%= terms.name %>" required />
@@ -19,17 +19,16 @@
   <label for="example">example:</label>
   <input type="text" name="example" id="example" value ="<%= terms.example %>" required />
 
-  <label for="category">category:</label>
-<select name="category" id="category" value ="<%= terms.category %>"  required>
-  <option value="" disabled selected>choose</option> 
-  
-  <option value="Algebra"> (Algebra)</option>
-  <option value="Geometry"> (Geometry)</option>
-  <option value="Calculus"> (Calculus)</option>
-  <option value="Statistics"> (Statistics)</option>
-  <option value="Other"> (Other)</option> 
+ <label for="category">Category:</label>
+        <select name="category" id="category" required>
+            <option value="Algebra" <%= terms.category === "Algebra" ? "selected" : "" %>>Algebra</option>
+            <option value="Geometry" <%= terms.category === "Geometry" ? "selected" : "" %>>Geometry</option>
+            <option value="Calculus" <%= terms.category === "Calculus" ? "selected" : "" %>>Calculus</option>
+            <option value="Statistics" <%= terms.category === "Statistics" ? "selected" : "" %>>Statistics</option>
+            <option value="Other" <%= terms.category === "Other" ? "selected" : "" %>>Other</option>
+        </select> 
 </select>
-  <button type="submit">Edit Listing</button>
+  <button type="submit">Save Changeing</button>
 </form>
 </body>
 </html>
