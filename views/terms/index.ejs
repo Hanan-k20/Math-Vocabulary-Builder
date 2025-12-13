@@ -10,9 +10,9 @@
 <a href="/terms/new"> Add a New term</a>
 
 <ul>
-  <% terms.forEach((terms) => { %>
+  <% terms.forEach((term) => { %>
     <li>
-      <a href="/terms/<%= terms._id %>"><%= terms.name %></a>
+      <a href="/terms/<%= term._id %>"><%= term.name %></a>
     </li>
   <% }) %>
 </ul>

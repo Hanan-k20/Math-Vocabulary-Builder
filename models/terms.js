@@ -1,5 +1,18 @@
 const mongoose = require('mongoose');
 
+const CATEGORIES = [
+  'Algebra',
+  'Geometry',
+  'Calculus',
+  'Statistics',
+  'Probability',
+  'Trigonometry',
+  'Linear Algebra',
+  'Discrete Math'
+];
+
+
+
 const termsSchema = new mongoose.Schema(
   {
     name: {
@@ -15,10 +28,11 @@ const termsSchema = new mongoose.Schema(
       required: true,
       min: 0,
     },
-    category: {
-      type: String,
-      required: true,
-      min: 0,
+   category: {
+  type: String,
+  enum: CATEGORIES,
+  required: true
+
     },
     userId: {
       type: mongoose.Schema.Types.ObjectId,

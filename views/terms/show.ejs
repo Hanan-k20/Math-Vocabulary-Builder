@@ -8,10 +8,19 @@
 <body>
        <%- include('../partials/_navbar.ejs') %>
     <h1> <%= terms.name %></h1>
-
+    <% const icons = {
+      'Algebra': '➗',
+      'Geometry': '📐',
+      'Calculus': '∫',
+      'Statistics': '📊',
+      'Probability': '🎲',
+      'Trigonometry': '📐',
+      'Linear Algebra': '🧮',
+      'Discrete Math': '🧩'
+    }; %>
     <p>Definition: <%= terms.definition %> </p>
     <p>Example: <%= terms.example %></p>
-    <p>category: <%= terms.category %></p>
+    <p>category: <%= terms.category %><%= icons[terms.category] %></p>
   <% if (terms.userId._id.equals(user._id)) { %>
     
     <form action="/terms/<%= terms._id %>?_method=DELETE" method="POST">

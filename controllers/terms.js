@@ -3,7 +3,20 @@ const express = require('express');
 const router = express.Router();
 const Terms = require('../models/terms.js');
 
+const CATEGORIES = [
+        'Algebra',
+        'Geometry',
+        'Calculus',
+        'Statistics',
+        'Probability',
+        'Trigonometry',
+        'Number Theory',
+        'Discrete Math'
+        ]
+
+
 module.exports = router;
+
 
 router.get('/', async (req, res) => {
   try {
@@ -19,7 +32,7 @@ router.get('/', async (req, res) => {
 
 router.get('/new', async (req, res) => {
   try {
-    res.render('terms/new.ejs');
+    res.render('terms/new.ejs',{ categories: CATEGORIES });
   } catch (error) {
     console.error(error);
     res.redirect('/');
@@ -29,9 +42,8 @@ router.get('/new', async (req, res) => {
 router.get('/:id/edit', async (req, res) => {
   try {
     const currentTerms = await Terms.findById(req.params.id);
-    res.render('terms/edit.ejs', {
-      terms: currentTerms,
-    });
+    res.render('terms/edit.ejs', {terms: currentTerms,categories: CATEGORIES});
+    
   } catch (error) {
      console.error(error);
     res.redirect('/terms');
@@ -41,7 +53,7 @@ router.get('/:id/edit', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     req.body.userId = req.session.user._id;
-    await Terms.create(req.body);
+    const terms= await Terms.create(req.body);
     res.redirect('/terms');
   } catch (error) {
     console.error(error);

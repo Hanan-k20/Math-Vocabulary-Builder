@@ -8,6 +8,27 @@
 <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1>Edit Math Term </h1>
+
+
+     <% const icons = {
+    'Algebra': '➗',
+    'Geometry': '📐',
+    'Calculus': '∫',
+    'Statistics': '📊',
+    'Probability': '🎲',
+    'Trigonometry': '📐',
+    'Number Theory': '🔢',
+    'Discrete Math': '🧩'
+  }; %>
+
+  <!-- عرض التصنيف الحالي مع الإيموجي -->
+  <p>
+    Current category:
+    <strong>
+      <%= icons[terms.category] %> <%= terms.category %>
+    </strong>
+  </p>
+
     <form action="/terms/<%= terms._id %>?_method=PUT" method="POST">
 
   <label for="name">Name: </label>
@@ -21,12 +42,13 @@
 
  <label for="category">Category:</label>
         <select name="category" id="category" required>
-            <option value="Algebra" <%= terms.category === "Algebra" ? "selected" : "" %>>Algebra</option>
-            <option value="Geometry" <%= terms.category === "Geometry" ? "selected" : "" %>>Geometry</option>
-            <option value="Calculus" <%= terms.category === "Calculus" ? "selected" : "" %>>Calculus</option>
-            <option value="Statistics" <%= terms.category === "Statistics" ? "selected" : "" %>>Statistics</option>
-            <option value="Other" <%= terms.category === "Other" ? "selected" : "" %>>Other</option>
-        </select> 
+
+<% categories.forEach(cat => { %>
+  <option value="<%= cat %>"
+    <%= terms.category === cat ? 'selected' : '' %>>
+    <%= cat %> <%= icons[cat] %> 
+  </option>
+<% }) %>
 </select>
   <button type="submit">Save Changeing</button>
 </form>

@@ -7,6 +7,19 @@
  </head>
  <body>
     <%- include('../partials/_navbar.ejs') %>
+
+    <% const icons = {
+  'Algebra': '➗',
+  'Geometry': '📐',
+  'Calculus': '∫',
+  'Statistics': '📊',
+  'Probability': '🎲',
+  'Trigonometry': '📐',
+  'Linear Algebra': '🧮',
+  'Discrete Math': '🧩'
+}; %>
+
+
     <h1>Add a New Math Term </h1>
     <form action="/terms" method="POST">
 
@@ -22,12 +35,13 @@
   <label for="category">category:</label>
 <select name="category" id="category" required>
   <option value="" disabled selected>choose</option> 
-  
-  <option value="Algebra"> (Algebra)</option>
-  <option value="Geometry"> (Geometry)</option>
-  <option value="Calculus"> (Calculus)</option>
-  <option value="Statistics"> (Statistics)</option>
-  <option value="Other"> (Other)</option> 
+
+ <% categories.forEach(cat => { %>
+        <option value="<%= cat %>">
+           <%= cat %><%= icons[cat] %>
+        </option>
+      <% }) %>
+
 </select>
   <button type="submit">Add Term</button>
 </form>
