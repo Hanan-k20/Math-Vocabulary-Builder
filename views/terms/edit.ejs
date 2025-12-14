@@ -4,13 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+<link rel="stylesheet" href="/stylesheets/style.css">
+
 </head>
 <body>
-    <%- include('../partials/_navbar.ejs') %>
-    <h1>Edit Math Term </h1>
 
-
-     <% const icons = {
+  <div class="page-header">
+        <div class="logo-title-group">
+          <img src="/stylesheets/image/logo1.jpg" alt="logo (Math Vocabulary Builder)">
+          <h1>Math Vocabulary Builder</h1>
+        </div>
+        <div class="auth-buttons-container">
+          <%- include('../partials/_navbar.ejs') %>
+        </div>
+  </div>
+  <h1>Edit Math Term</h1>
+    
+  <form action="/terms/<%= terms._id %>?_method=PUT" method="POST">
+  <% const icons = {
     'Algebra': '➗',
     'Geometry': '📐',
     'Calculus': '∫',
@@ -20,16 +31,6 @@
     'Number Theory': '🔢',
     'Discrete Math': '🧩'
   }; %>
-
-  <!-- عرض التصنيف الحالي مع الإيموجي -->
-  <p>
-    Current category:
-    <strong>
-      <%= icons[terms.category] %> <%= terms.category %>
-    </strong>
-  </p>
-
-    <form action="/terms/<%= terms._id %>?_method=PUT" method="POST">
 
   <label for="name">Name: </label>
   <input type="text" name="name" id="name"  value ="<%= terms.name %>" required />

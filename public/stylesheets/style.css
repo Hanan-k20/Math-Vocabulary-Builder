@@ -1,3 +1,436 @@
+/*
+ * ----------------------------------------------------
+ * 1. متغيرات CSS الأساسية (Colors & Fonts)
+ * ----------------------------------------------------
+ */
+:root {
+    --primary-color: #004d99; /* أزرق داكن للمسة الرسمية */
+    --secondary-color: #f0f0f5; /* خلفية فاتحة ونظيفة */
+    --accent-color: #ff9900; /* لون برتقالي للعناصر التفاعلية/المميزة */
+    --text-color: #333;
+    --light-text-color: #fff;
+    --border-color: #ddd;
+    --error-color: #cc0000;
+    --success-color: #008000;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --max-width: 1000px;
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/*
+ * ----------------------------------------------------
+ * 2. إعادة تعيين وتنسيق الجسم والخطوط (Reset & Body)
+ * ----------------------------------------------------
+ */
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding-bottom: 50px; /* مسافة أسفل الصفحة */
+}
+
+h1 {
+    color: var(--primary-color);
+    margin: 20px 0;
+    text-align: center;
+    font-size: 2em;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+/* لتنسيق المحتوى داخل الصفحة وجعله متوسطاً */
+body > .term-details,
+body > form,
+body > ul,
+body > .nav {
+    max-width: var(--max-width);
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/*
+ * ----------------------------------------------------
+ * 3. رأس الصفحة المشترك (Page Header/Navbar)
+ * ----------------------------------------------------
+ */
+.page-header {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--box-shadow);
+}
+
+.logo-title-group {
+    display: flex;
+    align-items: center;
+}
+
+.logo-title-group img {
+    height: 40px; /* حجم مناسب للشعار */
+    width: auto;
+    border-radius: 5px;
+    margin-inline-end: 15px; /* مسافة بين الشعار والعنوان */
+}
+
+.logo-title-group h1 {
+    color: var(--light-text-color);
+    margin: 0;
+    font-size: 1.8em;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* تنسيق شريط التنقل (الـ partial _navbar.ejs) */
+.auth-buttons-container {
+    display: flex;
+    gap: 10px;
+}
+
+.auth-buttons-container a,
+.auth-buttons-container button {
+    background-color: var(--accent-color);
+    color: var(--light-text-color);
+    text-decoration: none;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s;
+}
+
+.auth-buttons-container a:hover,
+.auth-buttons-container button:hover {
+    background-color: #e68a00; /* ظل أغمق للـ accent color */
+}
+
+/*
+ * ----------------------------------------------------
+ * 4. تنسيق قائمة المصطلحات (My Math Dictionary)
+ * ----------------------------------------------------
+ */
+.button-link.add {
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    background-color: var(--success-color);
+    color: var(--light-text-color);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.button-link.add:hover {
+    background-color: #006400;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.term-list-item {
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    margin-bottom: 10px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+}
+
+.term-list-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.term-name-link {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.action-buttons-list {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.action-button {
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border: 1px solid transparent;
+}
+
+.view-btn {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+}
+.view-btn:hover {
+    background-color: #003366;
+}
+
+.edit-btn {
+    background-color: var(--accent-color);
+    color: var(--light-text-color);
+    font-weight: bold;
+}
+.edit-btn:hover {
+    background-color: #e68a00;
+}
+
+.delete-form-inline {
+    display: inline; /* لجعل زر الحذف بجانب باقي الأزرار */
+}
+
+.delete-btn {
+    background-color: var(--error-color);
+    color: var(--light-text-color);
+    font-weight: bold;
+    border: none;
+}
+.delete-btn:hover {
+    background-color: #990000;
+}
+
+/*
+ * ----------------------------------------------------
+ * 5. صفحة تفاصيل المصطلح (Term Details)
+ * ----------------------------------------------------
+ */
+.term-details {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+}
+
+.term-details h1 {
+    text-align: start;
+    margin-top: 0;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.term-details p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.term-details strong {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-inline-end: 10px;
+}
+
+.detail-text {
+    background-color: var(--secondary-color);
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.category-info {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px dashed var(--border-color);
+}
+
+.category-badge {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9em;
+    display: inline-block;
+}
+
+.user-info {
+    font-style: italic;
+    color: #666;
+    margin-top: 15px;
+}
+
+/* مجموعة أزرار التعديل والحذف في صفحة التفاصيل */
+.action-group {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.action-group form {
+    display: flex;
+    gap: 10px;
+}
+
+.action-group button,
+.action-group a {
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+}
+
+.action-group a {
+    background-color: var(--accent-color);
+    color: var(--light-text-color);
+}
+
+.action-group button {
+    background-color: var(--error-color);
+    color: var(--light-text-color);
+}
+
+.action-group a:hover {
+    background-color: #e68a00;
+}
+
+.action-group button:hover {
+    background-color: #990000;
+}
+
+
+/*
+ * ----------------------------------------------------
+ * 6. تنسيق نماذج الإدخال (Add/Edit Form)
+ * ----------------------------------------------------
+ */
+body > form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+body > form label {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-top: 5px;
+}
+
+body > form input[type="text"],
+body > form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+body > form input[type="text"]:focus,
+body > form select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(255, 153, 0, 0.2);
+    outline: none;
+}
+
+body > form button[type="submit"] {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.2s;
+}
+
+body > form button[type="submit"]:hover {
+    background-color: #003366;
+}
+
+/*
+ * ----------------------------------------------------
+ * 7. تنسيق صفحة الهبوط (Home Content Card)
+ * ----------------------------------------------------
+ */
+.home-content-container {
+    /* 1. وضع محتوى الصفحة في المنتصف (Card) */
+    background-color: #fff; /* خلفية بيضاء للمربع */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* ظل أنيق وواضح */
+    max-width: 650px; /* عرض مناسب للبطاقة */
+    margin: 50px auto; /* توسيط أفقي وعمودي */
+    
+    /* 2. توسيط المحتوى داخلياً */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.home-content-container h2 {
+    color: var(--primary-color);
+    font-size: 1.8em;
+    margin-bottom: 0;
+}
+
+/* تنسيق الشعار الكبير (لتنفيذ طلب إزالة الخلفية البيضاء) */
+.main-logo-large {
+    height: 200px;
+    width: auto;
+    /* 3. إزالة الخلفية البيضاء (عن طريق دمجها مع البطاقة) */
+    /* إذا كانت الصورة ذات خلفية بيضاء، فوضعها على خلفية بيضاء هو أفضل حل */
+    padding: 5px;
+    background-color: transparent; 
+    /* إطار لتمييزه */
+    margin: 10px 0;
+}
+
+.home-content-container p {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* تنسيق زر الإضافة الرئيسي */
+.primary-action {
+    display: inline-block;
+    background-color: var(--success-color);
+    color: var(--light-text-color);
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 10px;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.primary-action:hover {
+    background-color: #006400;
+    transform: translateY(-2px);
 }

@@ -4,9 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+<link rel="stylesheet" href="../stylesheets/style.css">
 </head>
 <body>
-       <%- include('../partials/_navbar.ejs') %>
+        <div class="page-header">
+        <div class="logo-title-group">
+     <img src="../stylesheets/image/logo1.jpg" alt="logo(Math Vocabulary Builder)">
+            <h1>Math Vocabulary Builder</h1>
+        </div>
+        <div class="auth-buttons-container">
+            <%- include('../partials/_navbar.ejs') %>
+        </div>
+    </div>
+    <div class="term-details">
     <h1> <%= terms.name %></h1>
     <% const icons = {
       'Algebra': '➗',
@@ -18,22 +28,38 @@
       'Linear Algebra': '🧮',
       'Discrete Math': '🧩'
     }; %>
-    <p>Definition: <%= terms.definition %> </p>
-    <p>Example: <%= terms.example %></p>
-    <p>category: <%= terms.category %><%= icons[terms.category] %></p>
+    <p>
+      <strong> Definition:</strong>
+      <span class="detail-text"> <%= terms.definition %></span>
+    </p>
+
+     <p>
+      <strong> Example:</strong>
+      <span class="detail-text"> <%= terms.example %></span>
+    </p>
+    
+    <p class="category-info">
+      <strong>category: </strong>
+     <span class="category-badge"><%= terms.category %><%= icons[terms.category] %> </span> 
+    </p>
+
+
   <% if (terms.userId._id.equals(user._id)) { %>
+    <div class="action-group">
     
     <form action="/terms/<%= terms._id %>?_method=DELETE" method="POST">
-  <button type="submit">Delete this terms</button>
+  <button type="submit">🗑️ Delete </button>
+  <a href="/terms/<%= terms._id %>/edit">✍️ Edit</a>
 </form>
+</div>
 
-<a href="/terms/<%= terms._id %>/edit">Edit this terms</a>
+
   <% } else { %>
-    <p><%= terms.userId.username %> </p>
+    <p class="user-info">Created by:<%= terms.userId.username %> </p>
   <% } %>
 
   
-
+    </div>
     
 </body>
 </html>

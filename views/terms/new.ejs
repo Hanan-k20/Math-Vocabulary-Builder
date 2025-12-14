@@ -4,9 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+<link rel="stylesheet" href="../stylesheets/style.css">
  </head>
  <body>
-    <%- include('../partials/_navbar.ejs') %>
+    <div class="page-header">
+        <div class="logo-title-group">
+     <img src="../stylesheets/image/logo1.jpg" alt="logo(Math Vocabulary Builder)">
+            <h1>Math Vocabulary Builder</h1>
+        </div>
+        <div class="auth-buttons-container">
+            <%- include('../partials/_navbar.ejs') %>
+        </div>
+    </div>
+    <h1>Add a New Math Term</h1>
 
     <% const icons = {
   'Algebra': '➗',
@@ -19,8 +29,6 @@
   'Discrete Math': '🧩'
 }; %>
 
-
-    <h1>Add a New Math Term </h1>
     <form action="/terms" method="POST">
 
   <label for="name">Name: </label>

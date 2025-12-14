@@ -4,15 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+<link rel="stylesheet" href="../stylesheets/style.css">
 </head>
 <body>
-    <h1>my math dectionary </h1>
-<a href="/terms/new"> Add a New term</a>
+<div class="page-header">
+    <div class="logo-title-group">
+   <img src="../stylesheets/image/logo1.jpg" alt="logo(Math Vocabulary Builder)">
+    <h1>Math Vocabulary Builder</h1>
+    </div>
+    <div class="auth-buttons-container">
+      <%- include('../partials/_navbar.ejs') %>
+      </div>
+  </div>
+
+<h1>My Math Dictionary</h1>
+<a href="/terms/new" class="button-link add" > Add a New term</a>
+
+
 
 <ul>
   <% terms.forEach((term) => { %>
-    <li>
-      <a href="/terms/<%= term._id %>"><%= term.name %></a>
+    <li class="term-list-item">
+      <a href="/terms/<%= term._id %>" class="term-name-link"><%= term.name %></a>
+      <div class="action-buttons-list">
+        <a href="/terms/<%= term._id %>" class="action-button view-btn" title="View Details">View</a>
+        <a href="/terms/<%= term._id %>/edit" class="action-button edit-btn" title="Edit Term">✍️</a>
+        <form action="/terms/<%= term._id %>?_method=DELETE" method="POST" class="delete-form-inline">
+          <button type="submit" class="action-button delete-btn" title="Delete Term">🗑️</button>
+        </form>
+      </div>
     </li>
   <% }) %>
 </ul>

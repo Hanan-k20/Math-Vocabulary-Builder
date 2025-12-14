@@ -4,12 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+<link rel="stylesheet" href="/stylesheets/style.css">
+
 </head>
 <body>
-  <h1>Math Vocabulary Builder</h1>
-  <img src="../image/logo1.png" alt="logo(Math Vocabulary Builder)">
-  <%- include('./partials/_navbar.ejs') %>
-  <a href="terms/new"> add</a>
+
+  <div class="page-header">
+        <div class="logo-title-group">
+            <img src="../stylesheets/image/logo1.jpg" alt="logo(Math Vocabulary Builder)">
+            <h1>Math Vocabulary Builder</h1>
+  </div>
+        <div class="auth-buttons-container">          
+          <%- include('./partials/_navbar.ejs') %>
+  </div>
+  </div>
+
+  <div class="home-content-container">
+        <h2>Welcome to Your Dictionary</h2>
+        <img src="../stylesheets/image/logo1.jpg" alt="Main Logo" class="main-logo-large">
+        <p>Explore, learn, and contribute mathematical terms to your personal vocabulary collection.</p>
+
+        <a href="terms/new" class="button-link primary-action"> ➕ Add a New Term</a>
+  
 
 </body>
 </html>
