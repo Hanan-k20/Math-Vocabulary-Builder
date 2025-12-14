@@ -1,21 +1,24 @@
+
+/*
+
+
+التصميم المعدل 
+
+
+
+
+*/
 /*
  * ----------------------------------------------------
  * 1. متغيرات CSS الأساسية (Colors & Fonts)
  * ----------------------------------------------------
  */
 :root {
-    --primary-color: #004d99; /* أزرق داكن للمسة الرسمية */
-    --secondary-color: #f0f0f5; /* خلفية فاتحة ونظيفة */
-    --accent-color: #ff9900; /* لون برتقالي للعناصر التفاعلية/المميزة */
-    --text-color: #333;
-    --light-text-color: #fff;
-    --border-color: #ddd;
-    --error-color: #cc0000;
-    --success-color: #008000;
+    
     --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --max-width: 1000px;
-    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);   
 }
+
 
 /*
  * ----------------------------------------------------
@@ -30,18 +33,19 @@
 
 body {
     font-family: var(--font-family);
-    background-color: var(--secondary-color);
-    color: var(--text-color);
+    background-color:#f0f0f5;
+    color:#333;
+    font-weight: bold;
     line-height: 1.6;
-    padding-bottom: 50px; /* مسافة أسفل الصفحة */
+    padding-bottom: 50px; 
 }
 
 h1 {
-    color: var(--primary-color);
+    color: #933664;
     margin: 20px 0;
     text-align: center;
     font-size: 2em;
-    border-bottom: 2px solid var(--border-color);
+    border-bottom: 2px solid #ddd;
     padding-bottom: 10px;
 }
 
@@ -50,7 +54,7 @@ body > .term-details,
 body > form,
 body > ul,
 body > .nav {
-    max-width: var(--max-width);
+    max-width: 1000px ;
     margin: 20px auto;
     padding: 0 20px;
 }
@@ -61,14 +65,15 @@ body > .nav {
  * ----------------------------------------------------
  */
 .page-header {
-    background-color: var(--primary-color);
-    color: var(--light-text-color);
-    padding: 15px 20px;
+    background-color:#ff8ba7;
+    color: #933664;/*or black#00000*/
+    padding: 5px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: var(--box-shadow);
 }
+
 
 .logo-title-group {
     display: flex;
@@ -76,21 +81,26 @@ body > .nav {
 }
 
 .logo-title-group img {
-    height: 40px; /* حجم مناسب للشعار */
+    height: 70px; 
     width: auto;
-    border-radius: 5px;
-    margin-inline-end: 15px; /* مسافة بين الشعار والعنوان */
+    margin-inline-end: 10px; 
+}
+
+#Math{
+
+   height: 60px; 
+    width: 450px;
 }
 
 .logo-title-group h1 {
-    color: var(--light-text-color);
+    color:#000000;
     margin: 0;
     font-size: 1.8em;
     border-bottom: none;
     padding-bottom: 0;
 }
 
-/* تنسيق شريط التنقل (الـ partial _navbar.ejs) */
+/* تنسيق شريط التنقل */
 .auth-buttons-container {
     display: flex;
     gap: 10px;
@@ -98,8 +108,8 @@ body > .nav {
 
 .auth-buttons-container a,
 .auth-buttons-container button {
-    background-color: var(--accent-color);
-    color: var(--light-text-color);
+    background-color:#fbdd74;
+    color:#000000;
     text-decoration: none;
     padding: 8px 15px;
     border: none;
@@ -111,7 +121,7 @@ body > .nav {
 
 .auth-buttons-container a:hover,
 .auth-buttons-container button:hover {
-    background-color: #e68a00; /* ظل أغمق للـ accent color */
+    background-color:#e68a00; /* ظل أغمق للـ accent color */
 }
 
 /*
@@ -123,8 +133,8 @@ body > .nav {
     display: block;
     width: fit-content;
     margin: 20px auto;
-    background-color: var(--success-color);
-    color: var(--light-text-color);
+    background-color: #fbdd74;
+    color:#000000;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
@@ -133,7 +143,7 @@ body > .nav {
 }
 
 .button-link.add:hover {
-    background-color: #006400;
+    background-color: #ffc803;
 }
 
 ul {
@@ -143,7 +153,7 @@ ul {
 
 .term-list-item {
     background-color: #fff;
-    border: 1px solid var(--border-color);
+    border: 1px solid #ddd;
     margin-bottom: 10px;
     padding: 15px 20px;
     border-radius: 8px;
@@ -161,7 +171,7 @@ ul {
 .term-name-link {
     font-size: 1.2em;
     font-weight: bold;
-    color: var(--primary-color);
+    color: #933664;
     text-decoration: none;
 }
 
@@ -182,16 +192,16 @@ ul {
 }
 
 .view-btn {
-    background-color: var(--primary-color);
-    color: var(--light-text-color);
+    background-color: #ff8ba7;
+    color: #000000;
 }
 .view-btn:hover {
-    background-color: #003366;
+    background-color: #933664;
 }
 
 .edit-btn {
-    background-color: var(--accent-color);
-    color: var(--light-text-color);
+    background-color: #fbdd74;
+    color:#000000;
     font-weight: bold;
 }
 .edit-btn:hover {
@@ -202,9 +212,10 @@ ul {
     display: inline; /* لجعل زر الحذف بجانب باقي الأزرار */
 }
 
+
 .delete-btn {
-    background-color: var(--error-color);
-    color: var(--light-text-color);
+    background-color: #f72222;
+    color: #000000;
     font-weight: bold;
     border: none;
 }
@@ -218,7 +229,7 @@ ul {
  * ----------------------------------------------------
  */
 .term-details {
-    background-color: #fff;
+    background-color: #ffffff;
     padding: 30px;
     border-radius: 10px;
     box-shadow: var(--box-shadow);
@@ -227,7 +238,7 @@ ul {
 .term-details h1 {
     text-align: start;
     margin-top: 0;
-    border-bottom: 3px solid var(--primary-color);
+    border-bottom: 3px solid #ff8ba6;
 }
 
 .term-details p {
@@ -236,13 +247,13 @@ ul {
 }
 
 .term-details strong {
-    color: var(--primary-color);
+    color:#862a58;
     font-weight: 600;
     margin-inline-end: 10px;
 }
 
 .detail-text {
-    background-color: var(--secondary-color);
+    background-color:#ffffff;
     padding: 5px 10px;
     border-radius: 4px;
     display: inline-block;
@@ -251,12 +262,12 @@ ul {
 .category-info {
     margin-top: 20px;
     padding-top: 15px;
-    border-top: 1px dashed var(--border-color);
+    border-top: 1px dashed #ddd;
 }
 
 .category-badge {
-    background-color: var(--primary-color);
-    color: var(--light-text-color);
+    background-color: #ffffff;
+    color:#000000;
     padding: 5px 10px;
     border-radius: 20px;
     font-weight: bold;
@@ -269,12 +280,12 @@ ul {
     color: #666;
     margin-top: 15px;
 }
-
+ 
 /* مجموعة أزرار التعديل والحذف في صفحة التفاصيل */
 .action-group {
     margin-top: 30px;
     padding-top: 20px;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid #ddd;
     display: flex;
     justify-content: flex-end;
 }
@@ -287,23 +298,24 @@ ul {
 .action-group button,
 .action-group a {
     text-decoration: none;
+    margin-bottom: 10px;
     padding: 10px 18px;
     border-radius: 5px;
     font-weight: bold;
     transition: background-color 0.2s;
-    font-size: 1em;
+    font-size: 15px;
     border: none;
     cursor: pointer;
 }
 
 .action-group a {
-    background-color: var(--accent-color);
-    color: var(--light-text-color);
+    background-color: #fbdd74;
+    color:#000000;
 }
 
 .action-group button {
-    background-color: var(--error-color);
-    color: var(--light-text-color);
+    background-color: #f11616;
+    color: #000000;
 }
 
 .action-group a:hover {
@@ -331,31 +343,33 @@ body > form {
 }
 
 body > form label {
-    font-weight: 600;
-    color: var(--primary-color);
+    font-weight: bold;
+    color:#933664;
     margin-top: 5px;
 }
 
 body > form input[type="text"],
 body > form select {
-    width: 100%;
+    width: 600;
+    font-weight: bold;
     padding: 12px;
-    border: 1px solid var(--border-color);
+    border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 1em;
+    font-size: 12px;
+    color: #611c3f;
     transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 body > form input[type="text"]:focus,
 body > form select:focus {
-    border-color: var(--accent-color);
+    border-color: #fbdd74;
     box-shadow: 0 0 0 3px rgba(255, 153, 0, 0.2);
     outline: none;
 }
 
 body > form button[type="submit"] {
-    background-color: var(--primary-color);
-    color: var(--light-text-color);
+    background-color:#ff8ba7;
+    color: #000000;
     padding: 12px 20px;
     border: none;
     border-radius: 5px;
@@ -367,7 +381,7 @@ body > form button[type="submit"] {
 }
 
 body > form button[type="submit"]:hover {
-    background-color: #003366;
+    background-color: #f9d966;
 }
 
 /*
@@ -393,34 +407,34 @@ body > form button[type="submit"]:hover {
 }
 
 .home-content-container h2 {
-    color: var(--primary-color);
+    color: #933664;
     font-size: 1.8em;
     margin-bottom: 0;
+     background: rgba(255, 255, 255, 0.3); 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); 
+  border-radius: 12px;
 }
 
-/* تنسيق الشعار الكبير (لتنفيذ طلب إزالة الخلفية البيضاء) */
 .main-logo-large {
     height: 200px;
     width: auto;
-    /* 3. إزالة الخلفية البيضاء (عن طريق دمجها مع البطاقة) */
-    /* إذا كانت الصورة ذات خلفية بيضاء، فوضعها على خلفية بيضاء هو أفضل حل */
     padding: 5px;
     background-color: transparent; 
-    /* إطار لتمييزه */
     margin: 10px 0;
 }
 
 .home-content-container p {
     font-size: 1.1em;
-    color: #666;
+    color: #000000;
     margin-bottom: 10px;
 }
 
 /* تنسيق زر الإضافة الرئيسي */
 .primary-action {
     display: inline-block;
-    background-color: var(--success-color);
-    color: var(--light-text-color);
+    background-color: #f9d966;
+    color: #000000;
     padding: 15px 30px;
     text-decoration: none;
     border-radius: 8px;
@@ -431,6 +445,10 @@ body > form button[type="submit"]:hover {
 }
 
 .primary-action:hover {
-    background-color: #006400;
+    background-color: #e68a00;
     transform: translateY(-2px);
+}
+
+.sign label{
+  color:#000000
 }

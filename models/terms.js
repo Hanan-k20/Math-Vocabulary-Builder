@@ -8,6 +8,7 @@ const CATEGORIES = [
   'Probability',
   'Trigonometry',
   'Linear Algebra',
+  'Number Theory' ,
   'Discrete Math'
 ];
 
