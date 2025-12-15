@@ -16,6 +16,10 @@ const userSchema = mongoose.Schema({
     required: true,
   },
 
+  prof:{
+    type: String,
+  }
+
 });
 // then we register the model with mongoose
 const User = mongoose.model('User', userSchema);

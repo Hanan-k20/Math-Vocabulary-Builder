@@ -1,7 +1,16 @@
 
-
 <nav>
+
+ 
   <% if (user) { %>
+
+   <% if (user.prof) { %>
+     <img src="<%= user.prof %>" alt=" profile picture" class="profile-pic">
+     
+    <% } else { %>
+     <img src="/stylesheets/image/prof.png" alt="default-avatar" class="profile-pic">
+     <% } %>
+  
   <a href="/">Home</a>
   <a href="/auth/sign-out">Sign Out</a>
   <% } else { %>

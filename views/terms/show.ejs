@@ -49,14 +49,19 @@
     <div class="action-group">
     
     <form action="/terms/<%= terms._id %>?_method=DELETE" method="POST">
+ <a href="/terms/<%= terms._id %>/edit">✍️ Edit</a>
   <button type="submit">🗑️ Delete </button>
-  <a href="/terms/<%= terms._id %>/edit">✍️ Edit</a>
+    <a href="/terms">back</a>
+  
+  
+
 </form>
 </div>
 
 
   <% } else { %>
     <p class="user-info">Created by:<%= terms.userId.username %> </p>
+    <a href="/terms"  class="aLink">back</a>
   <% } %>
 
   

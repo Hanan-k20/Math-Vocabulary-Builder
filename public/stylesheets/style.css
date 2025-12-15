@@ -1,14 +1,5 @@
 
 /*
-
-
-التصميم المعدل 
-
-
-
-
-*/
-/*
  * ----------------------------------------------------
  * 1. متغيرات CSS الأساسية (Colors & Fonts)
  * ----------------------------------------------------
@@ -92,18 +83,17 @@ body > .nav {
     width: 450px;
 }
 
-.logo-title-group h1 {
-    color:#000000;
-    margin: 0;
-    font-size: 1.8em;
-    border-bottom: none;
-    padding-bottom: 0;
-}
 
 /* تنسيق شريط التنقل */
 .auth-buttons-container {
     display: flex;
+    align-items: center; 
     gap: 10px;
+}
+.auth-buttons-container nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .auth-buttons-container a,
@@ -113,17 +103,29 @@ body > .nav {
     text-decoration: none;
     padding: 8px 15px;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
     font-size: 0.9em;
     transition: background-color 0.2s;
+    
 }
 
 .auth-buttons-container a:hover,
 .auth-buttons-container button:hover {
-    background-color:#e68a00; /* ظل أغمق للـ accent color */
+    background-color:#e68a00; 
 }
-
+.profile-pic {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  padding: 0%;
+  object-fit: cover;
+  border: 2px solid #000;
+}
+.auth-buttons-container img:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
+  cursor: pointer;
+}
 /*
  * ----------------------------------------------------
  * 4. تنسيق قائمة المصطلحات (My Math Dictionary)
@@ -276,9 +278,9 @@ ul {
 }
 
 .user-info {
-    font-style: italic;
-    color: #666;
-    margin-top: 15px;
+    font-style:initial;
+    color: #6b6969;
+    margin-top: 10px;
 }
  
 /* مجموعة أزرار التعديل والحذف في صفحة التفاصيل */
@@ -383,7 +385,61 @@ body > form button[type="submit"] {
 body > form button[type="submit"]:hover {
     background-color: #f9d966;
 }
+body> a{
+   background-color: #f9d966;
+}
 
+.aLink{
+    display: inline-block;
+    background-color: #f9d966;
+    color: #000000;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.9em;
+    margin-top: 10px;
+    margin-inline-start: 93%;
+    margin-bottom: 10px;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.aLink:hover{
+      background-color: #f11616;
+}
+
+.buttons-row {
+  display: flex;
+  justify-content: center; 
+  gap: 5px;               
+}
+
+
+.aLink1 , .butt {
+  display: inline-block;
+    color: #000000;
+    padding: 10px 15px;
+    text-decoration:none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 18px;
+   text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    transition: background-color 0.2s, transform 0.2s;
+    width:300px;
+
+}
+.butt{
+  margin-top: 20px;
+}
+.aLink1 {
+background-color: #f9d966;
+
+}
+.aLink1:hover{
+      background-color: #e68a00;
+}
 /*
  * ----------------------------------------------------
  * 7. تنسيق صفحة الهبوط (Home Content Card)
@@ -449,6 +505,53 @@ body > form button[type="submit"]:hover {
     transform: translateY(-2px);
 }
 
+.sign {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+   width: 400px;
+    margin: 50px auto;
+
+
+}
+
 .sign label{
-  color:#000000
+ font-weight: bold;
+    color:#933664;
+    margin-top: 5px;
+    
+  
+}
+
+
+.sign input{
+width: 300px;
+height: 35px;
+border-radius: 5px;
+}
+
+.sign button{
+width: 250px;
+height: 40px;
+background-color: #ff8ba7;
+border: #ff8ba7;
+border-radius: 5px;
+font-size: 15px;
+font-weight: bold;
+}
+
+.sign button:hover {
+    background-color: #ffc803;
+    transform: translateY(-2px);
+}
+
+.sign input:hover {
+    border-color: #ffc803;
+    transform: translateY(-2px);
 }
