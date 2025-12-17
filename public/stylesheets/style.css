@@ -1,25 +1,19 @@
 
-/*
- * ----------------------------------------------------
- * 1. متغيرات CSS الأساسية (Colors & Fonts)
- * ----------------------------------------------------
- */
 :root {
     
-    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-family:  Geneva, Tahoma, Verdana, sans-serif,'Segoe UI',;
     --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);   
 }
 
-
-/*
- * ----------------------------------------------------
- * 2. إعادة تعيين وتنسيق الجسم والخطوط (Reset & Body)
- * ----------------------------------------------------
- */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;   
 }
 
 body {
@@ -40,7 +34,6 @@ h1 {
     padding-bottom: 10px;
 }
 
-/* لتنسيق المحتوى داخل الصفحة وجعله متوسطاً */
 body > .term-details,
 body > form,
 body > ul,
@@ -50,19 +43,15 @@ body > .nav {
     padding: 0 20px;
 }
 
-/*
- * ----------------------------------------------------
- * 3. رأس الصفحة المشترك (Page Header/Navbar)
- * ----------------------------------------------------
- */
 .page-header {
     background-color:#ff8ba7;
-    color: #933664;/*or black#00000*/
+    color: #933664;
     padding: 5px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: var(--box-shadow);
+    z-index: 10;
 }
 
 
@@ -83,8 +72,6 @@ body > .nav {
     width: 450px;
 }
 
-
-/* تنسيق شريط التنقل */
 .auth-buttons-container {
     display: flex;
     align-items: center; 
@@ -126,11 +113,7 @@ body > .nav {
   transition: 0.2s;
   cursor: pointer;
 }
-/*
- * ----------------------------------------------------
- * 4. تنسيق قائمة المصطلحات (My Math Dictionary)
- * ----------------------------------------------------
- */
+
 .button-link.add {
     display: block;
     width: fit-content;
@@ -211,7 +194,7 @@ ul {
 }
 
 .delete-form-inline {
-    display: inline; /* لجعل زر الحذف بجانب باقي الأزرار */
+    display: inline; 
 }
 
 
@@ -225,11 +208,6 @@ ul {
     background-color: #990000;
 }
 
-/*
- * ----------------------------------------------------
- * 5. صفحة تفاصيل المصطلح (Term Details)
- * ----------------------------------------------------
- */
 .term-details {
     background-color: #ffffff;
     padding: 30px;
@@ -283,7 +261,6 @@ ul {
     margin-top: 10px;
 }
  
-/* مجموعة أزرار التعديل والحذف في صفحة التفاصيل */
 .action-group {
     margin-top: 30px;
     padding-top: 20px;
@@ -329,11 +306,6 @@ ul {
 }
 
 
-/*
- * ----------------------------------------------------
- * 6. تنسيق نماذج الإدخال (Add/Edit Form)
- * ----------------------------------------------------
- */
 body > form {
     background-color: #fff;
     padding: 30px;
@@ -389,24 +361,8 @@ body> a{
    background-color: #f9d966;
 }
 
-.aLink{
-    display: inline-block;
-    background-color: #f9d966;
-    color: #000000;
-    padding: 10px 15px;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 0.9em;
-    margin-top: 10px;
-    margin-inline-start: 93%;
-    margin-bottom: 10px;
-    transition: background-color 0.2s, transform 0.2s;
-}
 
-.aLink:hover{
-      background-color: #f11616;
-}
+
 
 .buttons-row {
   display: flex;
@@ -422,39 +378,56 @@ body> a{
     text-decoration:none;
     border-radius: 5px;
     font-weight: bold;
-    font-size: 18px;
-   text-align: center;
+    font-size: 23px;
     margin-top: 20px;
     margin-bottom: 10px;
     transition: background-color 0.2s, transform 0.2s;
-    width:300px;
+    
+  
+    
 
 }
 .butt{
   margin-top: 20px;
+  text-align: center;
+  width:900px;
+  height: 50px;
 }
-.aLink1 {
-background-color: #f9d966;
+.aLink1{
+     text-align: right;
+     width:10px;
+     margin-right: 10px;
 
 }
-.aLink1:hover{
-      background-color: #e68a00;
+.aLink {
+    display: block;       
+    text-align: right;    
+    width: 100%;           
+    text-decoration: none;
+    font-size: 23px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    transform-origin: right center; 
+    transition: transform 0.3s ease;
 }
-/*
- * ----------------------------------------------------
- * 7. تنسيق صفحة الهبوط (Home Content Card)
- * ----------------------------------------------------
- */
+.aLink:hover, .aLink1:hover {
+    animation: pulseLight 0.6s ease-in-out;
+}
+
+@keyframes pulseLight {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); } 
+    100% { transform: scale(1); }
+}
+
+
 .home-content-container {
-    /* 1. وضع محتوى الصفحة في المنتصف (Card) */
-    background-color: #fff; /* خلفية بيضاء للمربع */
+    background-color: #fff; 
     padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* ظل أنيق وواضح */
-    max-width: 650px; /* عرض مناسب للبطاقة */
-    margin: 50px auto; /* توسيط أفقي وعمودي */
-    
-    /* 2. توسيط المحتوى داخلياً */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); 
+    max-width: 650px; 
+    margin: 50px auto; 
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -486,10 +459,21 @@ background-color: #f9d966;
     margin-bottom: 10px;
 }
 
-/* تنسيق زر الإضافة الرئيسي */
 .primary-action {
     display: inline-block;
-    background-color: #f9d966;
+    background-color: #FF8FA3;
+    color: #000000;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 10px;
+    transition: background-color 0.2s, transform 0.2s;
+}
+.primary-action1 {
+    display: inline-block;
+    background-color:#F9D86C ;
     color: #000000;
     padding: 15px 30px;
     text-decoration: none;
@@ -501,6 +485,11 @@ background-color: #f9d966;
 }
 
 .primary-action:hover {
+    background-color: #f2af28;
+    transform: translateY(-2px);
+}
+
+.primary-action1:hover {
     background-color: #e68a00;
     transform: translateY(-2px);
 }
@@ -554,4 +543,60 @@ font-weight: bold;
 .sign input:hover {
     border-color: #ffc803;
     transform: translateY(-2px);
+}
+
+
+
+ .math-background span {
+    position: absolute;
+    top: 100%; 
+    display: inline-block;
+    color: #f755b4 !important;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(247, 85, 215, 0.5);
+    animation: continuousFloat linear infinite; 
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: -1;
+}
+
+.math-background span:nth-child(1)  { left: 2%;  animation-delay: 0s;   animation-duration: 14s; font-size: 35px; }
+.math-background span:nth-child(2)  { left: 12%; animation-delay: 4s;   animation-duration: 18s; font-size: 50px; }
+.math-background span:nth-child(3)  { left: 22%; animation-delay: 1s;   animation-duration: 15s; font-size: 25px; }
+.math-background span:nth-child(4)  { left: 32%; animation-delay: 7s;   animation-duration: 20s; font-size: 45px; }
+.math-background span:nth-child(5)  { left: 42%; animation-delay: 2s;   animation-duration: 13s; font-size: 30px; }
+.math-background span:nth-child(6)  { left: 52%; animation-delay: 10s;  animation-duration: 19s; font-size: 55px; }
+.math-background span:nth-child(7)  { left: 62%; animation-delay: 0.5s; animation-duration: 16s; font-size: 20px; }
+.math-background span:nth-child(8)  { left: 72%; animation-delay: 5s;   animation-duration: 14s; font-size: 40px; }
+.math-background span:nth-child(9)  { left: 82%; animation-delay: 3s;   animation-duration: 17s; font-size: 35px; }
+.math-background span:nth-child(10) { left: 92%; animation-delay: 8s;   animation-duration: 15s; font-size: 45px; }
+.math-background span:nth-child(11) { left: 7%;  animation-delay: 6s;   animation-duration: 16s; }
+.math-background span:nth-child(12) { left: 17%; animation-delay: 12s;  animation-duration: 13s; }
+.math-background span:nth-child(13) { left: 27%; animation-delay: 3s;   animation-duration: 18s; }
+.math-background span:nth-child(14) { left: 37%; animation-delay: 15s;  animation-duration: 14s; }
+.math-background span:nth-child(15) { left: 47%; animation-delay: 5s;   animation-duration: 20s; }
+.math-background span:nth-child(16) { left: 57%; animation-delay: 1s;   animation-duration: 15s; }
+.math-background span:nth-child(17) { left: 67%; animation-delay: 9s;   animation-duration: 17s; }
+.math-background span:nth-child(18) { left: 77%; animation-delay: 4s;   animation-duration: 13s; }
+.math-background span:nth-child(19) { left: 87%; animation-delay: 11s;  animation-duration: 19s; }
+.math-background span:nth-child(20) { left: 95%; animation-delay: 2s;   animation-duration: 15s; }
+
+@keyframes continuousFloat {
+    0% {
+        top: 100%;
+        transform: translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        top: -10%; 
+        transform: translateX(20px) rotate(360deg);
+        opacity: 0;
+    }
 }

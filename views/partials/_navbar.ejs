@@ -1,14 +1,26 @@
 
 <nav>
+  <div class="math-background">
+    <span>&int;</span> <span>&sum;</span> <span>&plus;</span> <span>&minus;</span> <span>&times;</span>
+    <span>&divide;</span> <span>&pi;</span> <span>&radic;</span> <span>&infin;</span> <span>&Delta;</span>
+    <span>X</span> <span>Y</span> <span>Z</span> <span>&ne;</span> <span>&alpha;</span>
+    <span>&beta;</span> <span>&gamma;</span> <span>%</span> <span>&theta;</span> <span>&fnof;</span>
+</div>
 
- 
-  <% if (user) { %>
+<div class="page-header">
+        <div class="logo-title-group">
+           <img src="/image/12.png" alt="logo(Math Vocabulary Builder)">
+           <img src="/image/13.png" alt="Math Vocabulary Builder" id="Math">
+            
+  </div>
+        <div class="auth-buttons-container">          
+         <% if (user) { %>
 
    <% if (user.prof) { %>
      <img src="<%= user.prof %>" alt=" profile picture" class="profile-pic">
      
     <% } else { %>
-     <img src="/stylesheets/image/prof.png" alt="default-avatar" class="profile-pic">
+     <img src="/image/prof.png" alt="default-avatar" class="profile-pic">
      <% } %>
   
   <a href="/">Home</a>
@@ -18,3 +30,8 @@
   <a href="/auth/sign-in">Sign In</a>
   <% } %>
 </nav>
+
+  </div>
+  </div>
+ 
+  

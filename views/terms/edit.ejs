@@ -8,17 +8,7 @@
 
 </head>
 <body>
-
-  <div class="page-header">
-        <div class="logo-title-group">
-
-           <img src="/stylesheets/image/12.png" alt="logo(Math Vocabulary Builder)">
-           <img src="/stylesheets/image/13.png" alt="Math Vocabulary Builder" id="Math">
-        </div>
-        <div class="auth-buttons-container">
-          <%- include('../partials/_navbar.ejs') %>
-        </div>
-  </div>
+  <%- include('../partials/_navbar.ejs') %>
   <h1>Edit Math Term</h1>
     
   <form action="/terms/<%= terms._id %>?_method=PUT" method="POST">
@@ -30,6 +20,7 @@
     'Probability': '🎲',
     'Trigonometry': '📐',
     'Number Theory': '🔢',
+    'Linear Algebra': '🧮',
     'Discrete Math': '🧩'
   }; %>
 
@@ -52,8 +43,10 @@
   </option>
 <% }) %>
 </select>
-  <button type="submit">Save Changeing</button>
-  <a href="/terms"  class="aLink">back</a>
+<div class="buttons-row">
+  <button type="submit" class="butt">Save Changeing</button>
+  <a href="/terms"  class="aLink1">🔙</a>
+  </div>
 </form>
 </body>
 </html>

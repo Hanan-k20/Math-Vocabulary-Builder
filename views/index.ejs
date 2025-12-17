@@ -6,26 +6,19 @@
   <title>Document</title>
 <link rel="stylesheet" href="/stylesheets/style.css">
 
+
 </head>
 <body>
-
-  <div class="page-header">
-        <div class="logo-title-group">
-            <img src="../stylesheets/image/12.png" alt="logo(Math Vocabulary Builder)">
-            <img src="../stylesheets/image/13.png" alt="Math Vocabulary Builder" id="Math">
-            
-  </div>
-        <div class="auth-buttons-container">          
-          <%- include('./partials/_navbar.ejs') %>
-  </div>
-  </div>
+ 
+ <%- include('./partials/_navbar.ejs') %>
 
   <div class="home-content-container">
         <h2>Welcome to Your Dictionary</h2>
-        <img src="../stylesheets/image/logo-with-white-background.png" alt="Main Logo" class="main-logo-large">
+        <img src="../image/logo-with-white-background.png" alt="Main Logo" class="main-logo-large">
         <p>Explore, learn, and contribute mathematical terms to your personal vocabulary collection.</p>
-
+        <a href="/terms" class="button-link primary-action1">   📘  Go to Math Dictionary</a>
         <a href="terms/new" class="button-link primary-action"> ➕ Add a New Term</a>
+
   
 
 </body>

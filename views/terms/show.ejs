@@ -5,40 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 <link rel="stylesheet" href="../stylesheets/style.css">
-</head>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></head>
 <body>
-        <div class="page-header">
-        <div class="logo-title-group">
-          <img src="../stylesheets/image/12.png" alt="logo(Math Vocabulary Builder)">
-          <img src="../stylesheets/image/13.png" alt="Math Vocabulary Builder" id="Math">
-
-        </div>
-        <div class="auth-buttons-container">
-            <%- include('../partials/_navbar.ejs') %>
-        </div>
-    </div>
+  
+    <%- include('../partials/_navbar.ejs') %>
+    
     <div class="term-details">
     <h1> <%= terms.name %></h1>
-    <% const icons = {
-      'Algebra': '➗',
+   <% const icons = {
+     'Algebra': '➗',
       'Geometry': '📐',
       'Calculus': '∫',
       'Statistics': '📊',
       'Probability': '🎲',
       'Trigonometry': '📐',
       'Linear Algebra': '🧮',
+      'Number Theory': '🔢',
       'Discrete Math': '🧩'
-    }; %>
+}; %>
+    
+    <p><strong> Definition:</strong></p>
     <p>
-      <strong> Definition:</strong>
       <span class="detail-text"> <%= terms.definition %></span>
     </p>
-
+     <p><strong> Example:</strong></p>
      <p>
-      <strong> Example:</strong>
       <span class="detail-text"> <%= terms.example %></span>
     </p>
-    
+    <p></p>
     <p class="category-info">
       <strong>category: </strong>
      <span class="category-badge"><%= terms.category %><%= icons[terms.category] %> </span> 
@@ -48,10 +50,14 @@
   <% if (terms.userId._id.equals(user._id)) { %>
     <div class="action-group">
     
-    <form action="/terms/<%= terms._id %>?_method=DELETE" method="POST">
- <a href="/terms/<%= terms._id %>/edit">✍️ Edit</a>
-  <button type="submit">🗑️ Delete </button>
-    <a href="/terms">back</a>
+    <form action="/terms/<%= terms._id %>?_method=DELETE" method="POST" title="Delete Term">
+ <a href="/terms/<%= terms._id %>/edit" title="Edit Term">
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h357l-80 80H200v560h560v-278l80-80v358q0 33-23.5 56.5T760-120H200Zm280-360ZM360-360v-170l367-367q12-12 27-18t30-6q16 0 30.5 6t26.5 18l56 57q11 12 17 26.5t6 29.5q0 15-5.5 29.5T897-728L530-360H360Zm481-424-56-56 56 56ZM440-440h56l232-232-28-28-29-28-231 231v57Zm260-260-29-28 29 28 28 28-28-28Z"/></svg>
+ </a>
+  <button type="submit"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg> </button>
+    <a href="/terms" class="alink" title="Back">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M396-200q-97 0-166.5-63T160-420q0-94 69.5-157T396-640h252L544-744l56-56 200 200-200 200-56-56 104-104H396q-63 0-109.5 40T240-420q0 60 46.5 100T396-280h284v80H396Z"/></svg>
+    </a>
   
   
 
@@ -61,7 +67,7 @@
 
   <% } else { %>
     <p class="user-info">Created by:<%= terms.userId.username %> </p>
-    <a href="/terms"  class="aLink">back</a>
+    <a href="/terms"  class="aLink">🔙</a>
   <% } %>
 
   

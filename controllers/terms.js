@@ -4,15 +4,16 @@ const router = express.Router();
 const Terms = require('../models/terms.js');
 
 const CATEGORIES = [
-        'Algebra',
-        'Geometry',
-        'Calculus',
-        'Statistics',
-        'Probability',
-        'Trigonometry',
-        'Number Theory',
-        'Discrete Math'
-        ]
+  'Algebra',
+  'Geometry',
+  'Calculus',
+  'Statistics',
+  'Probability',
+  'Trigonometry',
+  'Linear Algebra',
+  'Number Theory' ,
+  'Discrete Math'
+];
 
 
 module.exports = router;

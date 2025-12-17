@@ -11,9 +11,6 @@ const CATEGORIES = [
   'Number Theory' ,
   'Discrete Math'
 ];
-
-
-
 const termsSchema = new mongoose.Schema(
   {
     name: {
