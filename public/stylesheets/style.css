@@ -13,7 +13,8 @@
 
 html, body {
     max-width: 100%;
-    overflow-x: hidden;   
+    overflow-x: hidden;  
+
 }
 
 body {
@@ -558,6 +559,7 @@ font-weight: bold;
     opacity: 0;
     pointer-events: none;
     white-space: nowrap;
+    overflow: hidden;
     z-index: -1;
 }
 

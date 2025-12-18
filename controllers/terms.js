@@ -14,10 +14,7 @@ const CATEGORIES = [
   'Number Theory' ,
   'Discrete Math'
 ];
-
-
 module.exports = router;
-
 
 router.get('/', async (req, res) => {
   try {
